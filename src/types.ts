@@ -1,6 +1,6 @@
-export interface defaultVideoStateType {
+export interface Video {
 	etag?: string | null;
-	id?: string;
+	id: any;
 	kind?: string | null;
 	snippet?: VideoSnippet;
 }
@@ -11,7 +11,7 @@ export interface VideoSnippet {
 	description?: string | null;
 	liveBroadcastContent?: string | null;
 	publishedAt?: string | null;
-	thumbnails?: {};
+	thumbnails: any;
 	title?: string | null;
 }
 

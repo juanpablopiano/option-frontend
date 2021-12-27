@@ -1,24 +1,24 @@
 import React from 'react';
 import { Card, Col, Row, Typography, Image } from 'antd';
-import { VideoSnippet } from '../types';
+import { Video } from '../types';
 const { Link } = Typography;
 
 const { Meta } = Card;
 
 interface CardListProps {
-	videos: VideoSnippet[];
+	videos: Video[];
 }
 
 const CardList: React.FC<CardListProps> = ({ videos }) => {
 	return (
 		<Row justify='space-between'>
-			{videos.length> 0 ? videos.map((video: any) => (
+			{videos.length> 0 ? videos.map((video: Video) => (
 				<Col role="carditem" key={video.etag} span={24} sm={10} md={8} lg={6} xl={4} style={{
 					display: 'flex',
 					justifyContent: 'center',
 				}} >
 					<Link
-						href={`https://www.youtube.com/watch?v=${video.id.videoId}`}
+						href={`https://www.youtube.com/watch?v=${video.id.videoId!}`}
 						target='_blank'
 					>
 						<Card
@@ -26,13 +26,13 @@ const CardList: React.FC<CardListProps> = ({ videos }) => {
 							cover={
 								<Image
 									alt='example'
-									src={video.snippet.thumbnails.default.url}
+									src={video.snippet!.thumbnails.default.url}
 								/>
 							}
 						>
 							<Meta
-								title={video.snippet.title}
-								description={video.snippet.description}
+								title={video.snippet!.title}
+								description={video.snippet!.description}
 							/>
 						</Card>
 					</Link>
