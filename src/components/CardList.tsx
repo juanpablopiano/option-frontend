@@ -9,11 +9,11 @@ interface CardListProps {
 	videos: VideoSnippet[];
 }
 
-const CardList: React.FC<CardListProps> = ({ videos, ...props }) => {
+const CardList: React.FC<CardListProps> = ({ videos }) => {
 	return (
 		<Row justify='space-between'>
-			{videos.map((video: any) => (
-				<Col key={video.etag} span={24} sm={10} md={8} lg={6} xl={4} style={{
+			{videos.length> 0 ? videos.map((video: any) => (
+				<Col role="carditem" key={video.etag} span={24} sm={10} md={8} lg={6} xl={4} style={{
 					display: 'flex',
 					justifyContent: 'center',
 				}} >
@@ -37,7 +37,7 @@ const CardList: React.FC<CardListProps> = ({ videos, ...props }) => {
 						</Card>
 					</Link>
 				</Col>
-			))}
+			)) : []}
 		</Row>
 	);
 };
